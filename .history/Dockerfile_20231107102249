@@ -1,0 +1,25 @@
+# Use an official PHP runtime as a parent image
+FROM php:7.4-fpm
+
+# Set the working directory to /var/www
+WORKDIR /var/www
+
+# Install any necessary extensions and dependencies
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    && docker-php-ext-install zip
+
+# Copy your application files into the container
+COPY . /var/www
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install project dependencies using Composer
+RUN composer install
+
+# Expose a port if needed
+# EXPOSE 80
+
+# Start your application (e.g., using PHP's built-in server)
+# CMD ["php", "-S", "0.0.0.0:80"]

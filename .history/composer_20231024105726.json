@@ -1,0 +1,17 @@
+{
+    "name": "andre/datapopulation_name",
+    "description": "script to insert data in my phpadmin database ecommerce",
+    "type": "project",
+    "require": {
+        "fzaninotto/faker": "^1.11"
+        },
+    "scripts": {
+        "post-install-cmd": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-update-cmd": [
+            "php artisan optimize"
+        ]
+    }
+}
+
