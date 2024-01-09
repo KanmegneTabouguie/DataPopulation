@@ -1,7 +1,0 @@
-{
-    "name": "andre/datapopulation_name",
-    "description": "Script to insert data in my PHPMyAdmin database for an e-commerce project",
-    "require": {
-        "fzaninotto/faker": "^1.11"
-    }
-}
